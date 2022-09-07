@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
-import Input from './component/Input';
+
 import Square from './component/Square';
+import Input from './component/Input';
 
-const App = () => {
+function App() {
   const [color, setColor] = useState();
-
-  const handleChangeColor = () => {};
-
+  const [hexValue, setHexValue] = useState();
+  const [isDark, setIsDark] = useState(true);
   return (
     <>
-      <Input color={color} setColor={setColor} />
-      <Square />
+      <Square color={color} hexValue={hexValue} isDark={isDark} />
+      <Input
+        color={color}
+        setColor={setColor}
+        hexValue={hexValue}
+        setHexValue={setHexValue}
+        isDark={isDark}
+        setIsDark={setIsDark}
+      />
     </>
   );
-};
+}
+
 export default App;

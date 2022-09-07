@@ -1,17 +1,22 @@
 import React from 'react';
+import colorNames from 'colornames';
 
-const Color = () => {
+function Input({ color, setColor, setHexValue, isDark, setIsDark }) {
   return (
-    <form className="form">
-      <textarea className="textarea"></textarea>
-      <br />
+    <form onSubmit={(e) => e.preventDefault}>
       <input
         type="text"
-        placeholder="input color"
         value={color}
-        onChange={() => {}}
+        onChange={(e) => {
+          setColor(e.target.value);
+          setHexValue(colorNames(e.target.value));
+        }}
       />
+      <button type="button" onClick={() => setIsDark(!isDark)}>
+        toggle text color
+      </button>
     </form>
   );
-};
-export default Color;
+}
+
+export default Input;
